@@ -1,7 +1,7 @@
-<article *ngIf="contact">
-    <h2>{{ contact.firstName }} {{ contact.lastName }}</h2>
+<article *ngIf="selectedContact$|async">
+    <h2>{{ (selectedContact$|async)?.firstName }} {{ (selectedContact$|async)?.lastName }}</h2>
     <dl>
         <dt>Email</dt>
-        <dd>{{ contact.email }}</dd>
+        <dd>{{ (selectedContact$|async)?.email }}</dd>
     </dl>
 </article>

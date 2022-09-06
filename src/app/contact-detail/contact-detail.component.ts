@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Contact } from '../model/contact';
+import { SelectedContactService } from '../selected-contact.service';
 
 @Component({
   selector: 'app-contact-detail',
@@ -7,6 +9,9 @@ import { Contact } from '../model/contact';
   styleUrls: ['./contact-detail.component.scss']
 })
 export class ContactDetailComponent {
-  @Input()
-  contact?: Contact;
+  selectedContact$: Observable<Contact>
+
+  constructor(selectedContactService: SelectedContactService) {
+    this.selectedContact$ = selectedContactService.selectedContact
+  }
 }
