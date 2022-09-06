@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Contact } from './model/contact';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ng22w36';
+  title = 'Carnet d\'adresse';
+
+  contact: Contact = {
+    id: 1,
+    firstName: 'Clark',
+    lastName: 'Ken',
+    email: 'clark@example.com'
+  }
 }
