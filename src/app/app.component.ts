@@ -8,7 +8,5 @@ import data from './stub/contacts.data';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Carnet d\'adresse';
-
   contacts: Contact[] = data;
 }
