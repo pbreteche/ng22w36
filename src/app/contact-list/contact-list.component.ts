@@ -9,4 +9,8 @@ import data from '../stub/contacts.data';
 })
 export class ContactListComponent{
   contacts: Contact[] = data;
+
+  select(contact: Contact) {
+    console.log(contact)
+  }
 }
