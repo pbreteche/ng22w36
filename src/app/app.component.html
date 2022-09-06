@@ -1,8 +1,7 @@
 <h1>{{ title }}</h1>
 
-<article>
-  <h2>{{ contact.firstName }} {{ contact.lastName }}</h2>
-  <dl>
-    <dt>Email</dt><dd>{{ contact.email }}</dd>
-  </dl>
-</article>
+<ul>
+  <li *ngFor="let contact of contacts">
+    {{ contact.firstName }} {{ contact.lastName }}
+  </li>
+</ul>

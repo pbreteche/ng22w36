@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Contact } from './model/contact';
+import data from './stub/contacts.data';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +10,5 @@ import { Contact } from './model/contact';
 export class AppComponent {
   title = 'Carnet d\'adresse';
 
-  contact: Contact = {
-    id: 1,
-    firstName: 'Clark',
-    lastName: 'Ken',
-    email: 'clark@example.com'
-  }
+  contacts: Contact[] = data;
 }
