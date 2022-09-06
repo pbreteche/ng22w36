@@ -1,0 +1,12 @@
+@import '../../scss/abstracts/variables';
+
+header {
+    background: $light-brand-color;
+    display: block;
+    padding: .5em;
+    border-bottom: .5em solid $dark-brand-color;
+
+    h1 {
+        color: $dark-brand-color;
+    }
+}
