@@ -1,0 +1,17 @@
+$itemColor: #Fa8;
+
+ul {
+    padding: 0;
+    list-style-type: none;
+
+    a {
+        display: block;
+        padding: 1em;
+        margin: .5em 0;
+        border: 1px solid $itemColor;
+        background: lighten($itemColor, 15%);
+        &:hover {
+            background: $itemColor;
+        }
+    }
+}
