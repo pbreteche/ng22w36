@@ -9,4 +9,8 @@ import data from './stub/contacts.data'
 })
 export class AppComponent {
   selectedContact: Contact = data[0]
+
+  select(contact: Contact) {
+    this.selectedContact = contact
+  }
 }
