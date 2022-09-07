@@ -8,6 +8,7 @@ import { ContactListComponent } from './contact-list/contact-list.component';
 import { TitleComponent } from './title/title.component';
 import { ContactCreateFormComponent } from './contact-create-form/contact-create-form.component';
 import { ContactCreateReactiveFormComponent } from './contact-create-reactive-form/contact-create-reactive-form.component';
+import { EvenLengthDirective } from './even-length.directive';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { ContactCreateReactiveFormComponent } from './contact-create-reactive-fo
     TitleComponent,
     ContactCreateFormComponent,
     ContactCreateReactiveFormComponent,
+    EvenLengthDirective,
   ],
   imports: [
     BrowserModule,

@@ -13,7 +13,7 @@
         <p [hidden]="lastNameModel.untouched || !(lastNameModel.errors?.['required'])">Le nom de famille est obligatoire</p>
         <label for="contact-last-name" class="required">Nom de famille</label>
         <input type="text" id="contact-last-name" [(ngModel)]="contact.lastName"
-         name="last-name" required #lastNameModel="ngModel"
+         name="last-name" required #lastNameModel="ngModel" appEvenLength
         >
     </div>
     <div class="form-row">
