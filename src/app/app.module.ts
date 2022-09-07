@@ -9,6 +9,7 @@ import { TitleComponent } from './title/title.component';
 import { ContactCreateFormComponent } from './contact-create-form/contact-create-form.component';
 import { ContactCreateReactiveFormComponent } from './contact-create-reactive-form/contact-create-reactive-form.component';
 import { EvenLengthDirective } from './even-length.directive';
+import { DivisibleByLengthDirective } from './divisible-by-length.directive';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { EvenLengthDirective } from './even-length.directive';
     ContactCreateFormComponent,
     ContactCreateReactiveFormComponent,
     EvenLengthDirective,
+    DivisibleByLengthDirective,
   ],
   imports: [
     BrowserModule,
