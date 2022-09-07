@@ -1,0 +1,10 @@
+input, textarea {
+    &.ng-invalid.ng-touched {
+        background-color: #FAA;
+    }
+}
+
+label.required::after {
+    content: "*";
+    color: red;
+}
