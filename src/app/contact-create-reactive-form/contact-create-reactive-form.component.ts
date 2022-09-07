@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ContactBufferService } from '../contact-buffer.service';
+import { Contact } from '../model/contact';
 
 @Component({
   selector: 'app-contact-create-reactive-form',
@@ -20,6 +22,8 @@ export class ContactCreateReactiveFormComponent {
     ]),
   })
 
+  constructor(private contactBuffer: ContactBufferService) {}
+
   get firstName() {
     return this.form.get('firstName')
   }
@@ -30,5 +34,10 @@ export class ContactCreateReactiveFormComponent {
 
   get email() {
     return this.form.get('email')
+  }
+
+  save() {
+    this.contactBuffer.push(this.form.value as Contact)
+    this.form.reset()
   }
 }

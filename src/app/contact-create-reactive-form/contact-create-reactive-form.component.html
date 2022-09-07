@@ -1,4 +1,4 @@
-<form [formGroup]="form">
+<form [formGroup]="form" (ngSubmit)="save()">
     <div class="form-row">
         <p [hidden]="firstName?.untouched || !(firstName?.errors?.['required'])">Le prénom est obligatoire</p>
         <p [hidden]="firstName?.untouched || !(firstName?.errors?.['minlength'])">
