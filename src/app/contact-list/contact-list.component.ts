@@ -1,4 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ContactBufferService } from '../contact-buffer.service';
 import { Contact } from '../model/contact';
 import { SelectedContactService } from '../selected-contact.service';
 import data from '../stub/contacts.data';
@@ -9,13 +11,16 @@ import data from '../stub/contacts.data';
   styleUrls: ['./contact-list.component.scss']
 })
 export class ContactListComponent{
-  contacts: Contact[] = data;
+  contacts$: Observable<Contact[]>;
 
   constructor(
-    private selectedContactService: SelectedContactService
-    ) {}
+    private selectedContact: SelectedContactService,
+    contactBuffer: ContactBufferService
+  ) {
+    this.contacts$ = contactBuffer.contactBuffer
+  }
 
   select(contact: Contact) {
-    this.selectedContactService.selectContact(contact)
+    this.selectedContact.selectContact(contact)
   }
 }
