@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ContactBufferService } from '../contact-buffer.service';
 import { Contact } from '../model/contact';
+import { Validators as AppValidators } from '../validators';
 
 @Component({
   selector: 'app-contact-create-reactive-form',
@@ -15,7 +16,8 @@ export class ContactCreateReactiveFormComponent {
       Validators.minLength(5)
     ]),
     lastName: new FormControl('', [
-      Validators.required
+      Validators.required,
+      AppValidators.evenLength,
     ]),
     email: new FormControl('', [
       Validators.pattern(/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/)
