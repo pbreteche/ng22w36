@@ -1,29 +1,24 @@
-<form>
-    <div>
+<form #form="ngForm" (ngSubmit)="save(); form.reset()">
+    <div class="form-row">
         <p *ngIf="firstNameModel.touched && firstNameModel.invalid">Le prénom est obligatoire</p>
         <label for="contact-first-name" class="required">Prénom</label>
         <input type="text" id="contact-first-name" [(ngModel)]="contact.firstName"
          name="first-name" required #firstNameModel="ngModel"
         >
     </div>
-    <div>
+    <div class="form-row">
         <p *ngIf="lastNameModel.touched && lastNameModel.invalid">Le nom de famille est obligatoire</p>
         <label for="contact-last-name" class="required">Nom de famille</label>
         <input type="text" id="contact-last-name" [(ngModel)]="contact.lastName"
          name="last-name" required #lastNameModel="ngModel"
         >
     </div>
-    <div>
+    <div class="form-row">
         <p *ngIf="emailModel.touched && emailModel.invalid">Ce n'est pas un format d'email</p>
         <label for="contact-email">Email</label>
         <input type="email" id="contact-email" [(ngModel)]="contact.email"
          name="email" #emailModel="ngModel" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
         >
     </div>
-    <button>Enregistrer</button>
+    <button [disabled]="form.invalid">Enregistrer</button>
 </form>
-
-<pre>
-{{ contact|json }}
-</pre>
-

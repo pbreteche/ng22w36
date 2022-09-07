@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ContactBufferService } from '../contact-buffer.service';
 import { Contact } from '../model/contact';
 
 @Component({
@@ -9,5 +10,10 @@ import { Contact } from '../model/contact';
 export class ContactCreateFormComponent {
   contact = new Contact()
 
+  constructor(private contactBuffer: ContactBufferService) {}
 
+  save() {
+    this.contactBuffer.push(this.contact)
+    this.contact = new Contact()
+  }
 }

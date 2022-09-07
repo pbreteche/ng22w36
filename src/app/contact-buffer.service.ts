@@ -8,12 +8,17 @@ import data from './stub/contacts.data';
 })
 export class ContactBufferService {
   private subject = new ReplaySubject<Contact[]>(1)
+  private contacts: Contact[] = data
 
   constructor() {
-    this.subject.next(data);
+    this.subject.next(this.contacts);
   }
   
   get contactBuffer(): Observable<Contact[]> {
     return this.subject.asObservable();
+  }
+
+  push(contact: Contact) {
+    this.contacts.push(contact)
   }
 }
