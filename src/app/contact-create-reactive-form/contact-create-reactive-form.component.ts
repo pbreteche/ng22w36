@@ -19,4 +19,16 @@ export class ContactCreateReactiveFormComponent {
       Validators.pattern(/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/)
     ]),
   })
+
+  get firstName() {
+    return this.form.get('firstName')
+  }
+
+  get lastName() {
+    return this.form.get('lastName')
+  }
+
+  get email() {
+    return this.form.get('email')
+  }
 }

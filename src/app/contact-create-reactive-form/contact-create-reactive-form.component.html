@@ -1,1 +1,27 @@
-<p>contact-create-reactive-form works!</p>
+<form [formGroup]="form">
+    <div class="form-row">
+        <p [hidden]="firstName?.untouched || !(firstName?.errors?.['required'])">Le prénom est obligatoire</p>
+        <p [hidden]="firstName?.untouched || !(firstName?.errors?.['minlength'])">
+            Le prénom doit comporté au moins 5 caractères, il en comporte actuellement
+        </p>
+        <label for="contact-first-name" class="required">Prénom</label>
+        <input type="text" id="contact-first-name" formControlName="firstName"
+         name="first-name"
+        >
+    </div>
+    <div class="form-row">
+        <p [hidden]="lastName?.untouched || !(lastName?.errors?.['required'])">Le nom de famille est obligatoire</p>
+        <label for="contact-last-name" class="required">Nom de famille</label>
+        <input type="text" id="contact-last-name" formControlName="lastName"
+         name="last-name"
+        >
+    </div>
+    <div class="form-row">
+        <p [hidden]="email?.untouched || !(email?.errors?.['pattern'])">Ce n'est pas un format d'email</p>
+        <label for="contact-email">Email</label>
+        <input type="email" id="contact-email" formControlName="email"
+         name="email"
+        >
+    </div>
+    <button [disabled]="form.invalid">Enregistrer</button>
+</form>
