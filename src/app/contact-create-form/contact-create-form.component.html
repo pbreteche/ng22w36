@@ -1,0 +1,26 @@
+<form>
+    <div>
+        <label for="contact-first-name">Prénom</label>
+        <input type="text" id="contact-first-name" [(ngModel)]="contact.firstName"
+         name="first-name"
+        >
+    </div>
+    <div>
+        <label for="contact-last-name">Nom de famille</label>
+        <input type="text" id="contact-last-name" [(ngModel)]="contact.lastName"
+         name="last-name"
+        >
+    </div>
+    <div>
+        <label for="contact-email">Email</label>
+        <input type="email" id="contact-email" [(ngModel)]="contact.email"
+         name="email"
+        >
+    </div>
+    <button>Enregistrer</button>
+</form>
+
+<pre>
+{{ contact|json }}
+</pre>
+
