@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { catchError, map, Observable, throwError } from 'rxjs';
 import { Contact } from './model/contact';
 
 @Injectable({
@@ -15,7 +15,16 @@ export class ContactLoaderService {
       .pipe(
         map(data => {
           return data as Contact[]
-        })
+        }),
+        catchError(
+          (err: HttpErrorResponse) => {
+            if (404 == err.status) {
+              return throwError(() => new Error('La ressource n\'a pas été trouvée'))
+            }
+
+            return throwError(() => new Error('Une erreur s\'est produite'))
+          }
+        )
       )
   }
 }
