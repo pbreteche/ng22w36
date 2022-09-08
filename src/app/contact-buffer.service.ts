@@ -13,11 +13,21 @@ export class ContactBufferService {
 
   constructor(private loader: ContactLoaderService) {
     this.loader.get()
-    .pipe(catchError(() => of(data)))
-    .subscribe((data: Contact[]) => {
-      this.contacts = data
-      this.subject.next(this.contacts)
+      .pipe(catchError(() => of(data)))
+      .subscribe((data: Contact[]) => {
+        this.contacts = data
+        this.subject.next(this.contacts)
     })
+
+    // Démo pour voir la syntaxe des promesses
+    this.loader.getPromise()
+      .then(
+        (data: Contact[]) => {
+          this.contacts = data
+          this.subject.next(this.contacts)
+        }, 
+        () => of(data)
+    )
   }
   
   get contactBuffer(): Observable<Contact[]> {

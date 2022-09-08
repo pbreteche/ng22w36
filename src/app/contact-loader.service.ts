@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, map, Observable, throwError } from 'rxjs';
+import { catchError, firstValueFrom, map, Observable, throwError } from 'rxjs';
 import { Contact } from './model/contact';
 
 @Injectable({
@@ -26,6 +26,15 @@ export class ContactLoaderService {
           }
         )
       )
+  }
+
+  getPromise(): Promise<Contact[]> {
+    return firstValueFrom(this.http.get('/assets/contacts.json')
+      .pipe(
+        map(data => {
+          return data as Contact[]
+        })
+    ))
   }
 
   post(contact: Contact): Observable<{id: number}> {
