@@ -11,6 +11,7 @@ import { ContactCreateFormComponent } from './contact-create-form/contact-create
 import { ContactCreateReactiveFormComponent } from './contact-create-reactive-form/contact-create-reactive-form.component';
 import { EvenLengthDirective } from './even-length.directive';
 import { DivisibleByLengthDirective } from './divisible-by-length.directive';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,11 @@ import { DivisibleByLengthDirective } from './divisible-by-length.directive';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot([
+      {path: '', component: ContactListComponent},
+      {path: 'contact/nouveau', component: ContactCreateFormComponent},
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
