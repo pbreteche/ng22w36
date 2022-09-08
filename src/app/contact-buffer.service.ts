@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { catchError, Observable, of, ReplaySubject } from 'rxjs';
+import { catchError, lastValueFrom, Observable, of, ReplaySubject } from 'rxjs';
 import { ContactLoaderService } from './contact-loader.service';
 import { Contact } from './model/contact';
 import data from './stub/contacts.data';
@@ -37,5 +37,11 @@ export class ContactBufferService {
   push(contact: Contact) {
     this.contacts.push(contact)
     this.loader.post(contact).subscribe(data => contact.id = data.id) // Nécessaire pour le déclenchement de la requête HTTP
+  }
+
+  async find(id: number): Promise<Contact|undefined> {
+    const contacts = await lastValueFrom(this.contactBuffer);
+
+    return contacts.find(contact => contact.id == id);
   }
 }

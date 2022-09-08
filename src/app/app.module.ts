@@ -32,6 +32,7 @@ import { RouterModule } from '@angular/router';
     RouterModule.forRoot([
       {path: '', component: ContactListComponent},
       {path: 'contact/nouveau', component: ContactCreateFormComponent},
+      {path: 'contact/detail/:id', component: ContactDetailComponent}
     ])
   ],
   providers: [],

@@ -6,10 +6,12 @@ ul {
 
     a {
         display: block;
+        text-decoration: none;
         padding: 1em;
         margin: .5em 0;
         border: 1px solid $itemColor;
         background: lighten($itemColor, 15%);
+        color: darken($itemColor, 40%);
         &:hover {
             background: $itemColor;
         }

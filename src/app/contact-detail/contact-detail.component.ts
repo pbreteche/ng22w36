@@ -1,17 +1,27 @@
-import { Component, Input } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ContactBufferService } from '../contact-buffer.service';
 import { Contact } from '../model/contact';
-import { SelectedContactService } from '../selected-contact.service';
 
 @Component({
   selector: 'app-contact-detail',
   templateUrl: './contact-detail.component.html',
   styleUrls: ['./contact-detail.component.scss']
 })
-export class ContactDetailComponent {
-  selectedContact$: Observable<Contact>
+export class ContactDetailComponent implements OnInit{
+  contact?: Promise<Contact|undefined>
 
-  constructor(selectedContactService: SelectedContactService) {
-    this.selectedContact$ = selectedContactService.selectedContact
+  constructor(
+    private route: ActivatedRoute,
+    private buffer: ContactBufferService
+    ) {}
+
+  ngOnInit(): void {
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      const idParam = params.get('id')      
+      if (idParam != null) {
+        this.contact = this.buffer.find(+idParam)
+      }
+    })
   }
 }

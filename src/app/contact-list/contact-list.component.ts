@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ContactBufferService } from '../contact-buffer.service';
 import { Contact } from '../model/contact';
-import { SelectedContactService } from '../selected-contact.service';
-import data from '../stub/contacts.data';
 
 @Component({
   selector: 'app-contact-list',
@@ -14,13 +12,8 @@ export class ContactListComponent{
   contacts$: Observable<Contact[]>;
 
   constructor(
-    private selectedContact: SelectedContactService,
     contactBuffer: ContactBufferService
   ) {
     this.contacts$ = contactBuffer.contactBuffer
-  }
-
-  select(contact: Contact) {
-    this.selectedContact.selectContact(contact)
   }
 }
