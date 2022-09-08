@@ -17,6 +17,36 @@ app-contact-list {
     padding: 1em;
 }
 
+nav {
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    a {
+        display: block;
+        text-decoration: none;
+        font-weight: bold;
+        margin: .5em;
+        padding: 1em;
+        background-color: $light-brand-color;
+        color: $dark-brand-color;
+
+        &:hover {
+            box-shadow: 0 0 0 .25em $dark-brand-color inset;
+        }
+
+        &.active {
+            background-color: $dark-brand-color;
+            color: $light-brand-color;
+    
+            &:hover {
+                box-shadow: 0 0 0 .25em $light-brand-color inset;
+            }
+        }
+    }
+}
+
 @media screen and (min-width: 960px) {
     .contact-container {
         display: flex;
@@ -25,5 +55,13 @@ app-contact-list {
 
     app-contact-detail {
         order: 1;
+    }
+
+
+    nav {
+        ul {
+            display: flex;
+            flex-direction: row;
+        }
     }
 }
