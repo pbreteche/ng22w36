@@ -26,5 +26,6 @@ export class ContactBufferService {
 
   push(contact: Contact) {
     this.contacts.push(contact)
+    this.loader.post(contact).subscribe(data => contact.id = data.id) // Nécessaire pour le déclenchement de la requête HTTP
   }
 }

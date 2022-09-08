@@ -27,4 +27,17 @@ export class ContactLoaderService {
         )
       )
   }
+
+  post(contact: Contact): Observable<{id: number}> {
+    return this.http.post('/contact', contact)
+      .pipe(
+        map(data => {
+          return data as {id: number}
+        }),
+        catchError(
+        (err: HttpErrorResponse) => {
+          return throwError(() => new Error('Une erreur s\'est produite'))
+        }
+      ))
+  }
 }
