@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Contact } from '../model/contact';
 
 @Component({
@@ -12,10 +12,14 @@ export class ContactDetailComponent implements OnInit{
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router
     ) {}
 
   ngOnInit(): void {
     this.route.data.subscribe(({contact}) => {
+      if (!contact) {
+        this.router.navigate([''])
+      }
       this.contact = contact;
     })
   }

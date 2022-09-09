@@ -14,6 +14,7 @@ import { DivisibleByLengthDirective } from './divisible-by-length.directive';
 import { RouterModule } from '@angular/router';
 import { ContactResolverService } from './contact-resolver.service';
 import { ContactTitleResolverService } from './contact-title-resolver.service';
+import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ContactTitleResolverService } from './contact-title-resolver.service';
     ContactCreateReactiveFormComponent,
     EvenLengthDirective,
     DivisibleByLengthDirective,
+    PipeDemoComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,7 +41,8 @@ import { ContactTitleResolverService } from './contact-title-resolver.service';
         component: ContactDetailComponent,
         title: ContactTitleResolverService,
         resolve: {contact: ContactResolverService}
-      }
+      },
+      {path: '**', redirectTo: ''}
     ])
   ],
   providers: [],
