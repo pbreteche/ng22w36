@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
-import { ContactBufferService } from '../contact-buffer.service';
+import { ActivatedRoute } from '@angular/router';
 import { Contact } from '../model/contact';
 
 @Component({
@@ -9,19 +8,15 @@ import { Contact } from '../model/contact';
   styleUrls: ['./contact-detail.component.scss']
 })
 export class ContactDetailComponent implements OnInit{
-  contact?: Promise<Contact|undefined>
+  contact?: Contact|undefined
 
   constructor(
     private route: ActivatedRoute,
-    private buffer: ContactBufferService
     ) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe((params: ParamMap) => {
-      const idParam = params.get('id')      
-      if (idParam != null) {
-        this.contact = this.buffer.find(+idParam)
-      }
+    this.route.data.subscribe(({contact}) => {
+      this.contact = contact;
     })
   }
 }

@@ -12,6 +12,8 @@ import { ContactCreateReactiveFormComponent } from './contact-create-reactive-fo
 import { EvenLengthDirective } from './even-length.directive';
 import { DivisibleByLengthDirective } from './divisible-by-length.directive';
 import { RouterModule } from '@angular/router';
+import { ContactResolverService } from './contact-resolver.service';
+import { ContactTitleResolverService } from './contact-title-resolver.service';
 
 @NgModule({
   declarations: [
@@ -30,9 +32,14 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot([
-      {path: '', component: ContactListComponent},
-      {path: 'contact/nouveau', component: ContactCreateFormComponent},
-      {path: 'contact/detail/:id', component: ContactDetailComponent}
+      {path: '', component: ContactListComponent, title: 'Carnet d\'adresse'},
+      {path: 'contact/nouveau', component: ContactCreateFormComponent, title: 'Nouveau contact'},
+      {
+        path: 'contact/detail/:id',
+        component: ContactDetailComponent,
+        title: ContactTitleResolverService,
+        resolve: {contact: ContactResolverService}
+      }
     ])
   ],
   providers: [],

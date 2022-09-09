@@ -1,4 +1,4 @@
-<app-title></app-title>
+<app-title [title]="outlet.activatedRoute.title"></app-title>
 <nav>
   <ul>
     <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
@@ -10,4 +10,4 @@
   </ul>
 </nav>
 
-<router-outlet></router-outlet>
+<router-outlet #outlet="outlet"></router-outlet>

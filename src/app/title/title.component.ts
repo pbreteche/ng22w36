@@ -1,10 +1,16 @@
-import { Component } from '@angular/core';
-
+import { Component, Input } from '@angular/core';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-title',
   templateUrl: './title.component.html',
   styleUrls: ['./title.component.scss']
 })
 export class TitleComponent {
-  title = 'Carnet d\'adresse';
+  @Input()
+  title?: Observable<string | undefined>;
+
+  constructor() {
+
+    //route.title.subscribe((title) => console.log(title))
+  }
 }
