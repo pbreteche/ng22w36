@@ -17,6 +17,7 @@ import { ContactTitleResolverService } from './contact-title-resolver.service';
 import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
 import { TransliterationPipe } from './transliteration.pipe';
 import { APP_CONFIG_TOKEN, APP_CONFIG_VALUE } from './config';
+import { HighlightableDirective } from './highlightable.directive';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { APP_CONFIG_TOKEN, APP_CONFIG_VALUE } from './config';
     DivisibleByLengthDirective,
     PipeDemoComponent,
     TransliterationPipe,
+    HighlightableDirective,
   ],
   imports: [
     BrowserModule,

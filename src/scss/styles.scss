@@ -25,3 +25,7 @@ label.required::after {
     content: "*";
     color: red;
 }
+
+.highlighted {
+    border: 1px solid blue;
+}
