@@ -1,4 +1,12 @@
 <form #form="ngForm" (ngSubmit)="save(); form.reset()">
+    <mat-accordion class="example-headers-align" multi>
+        <mat-expansion-panel>
+
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+          Informations personnelles
+        </mat-panel-title>
+    </mat-expansion-panel-header>
     <div class="form-row">
         <p [hidden]="firstNameModel.untouched || !(firstNameModel.errors?.['required'])">Le prénom est obligatoire</p>
         <p [hidden]="firstNameModel.untouched || !(firstNameModel.errors?.['minlength'])">
@@ -16,6 +24,14 @@
          name="last-name" required #lastNameModel="ngModel" appEvenLength appDivisibleByLength="3"
         >
     </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+              Coordonnées
+            </mat-panel-title>
+        </mat-expansion-panel-header>
     <div class="form-row">
         <p [hidden]="emailModel.untouched || !(emailModel.errors?.['pattern'])">Ce n'est pas un format d'email</p>
         <label for="contact-email">Email</label>
@@ -23,5 +39,7 @@
          name="email" #emailModel="ngModel" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
         >
     </div>
+    </mat-expansion-panel>
     <button [disabled]="form.invalid">Enregistrer</button>
+    </mat-accordion>
 </form>

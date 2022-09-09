@@ -20,6 +20,7 @@ import { APP_CONFIG_TOKEN, APP_CONFIG_VALUE } from './config';
 import { HighlightableDirective } from './highlightable.directive';
 import { UnlessDirective } from './unless.directive';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatExpansionModule } from '@angular/material/expansion'
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       },
       {path: '**', redirectTo: ''}
     ]),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatExpansionModule,
   ],
   providers: [
     /*
