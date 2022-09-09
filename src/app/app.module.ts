@@ -19,6 +19,7 @@ import { TransliterationPipe } from './transliteration.pipe';
 import { APP_CONFIG_TOKEN, APP_CONFIG_VALUE } from './config';
 import { HighlightableDirective } from './highlightable.directive';
 import { UnlessDirective } from './unless.directive';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { UnlessDirective } from './unless.directive';
         resolve: {contact: ContactResolverService}
       },
       {path: '**', redirectTo: ''}
-    ])
+    ]),
+    BrowserAnimationsModule
   ],
   providers: [
     /*
