@@ -1,7 +1,10 @@
-<article *ngIf="contact">
-    <h2>{{ contact.firstName }} {{ contact.lastName }}</h2>
+<article *ngIf="contact else loading">
+    <h2 [ngClass]="titleClasses()">{{ contact.firstName }} {{ contact.lastName }}</h2>
     <dl>
-        <dt>Email</dt>
+        <dt [class]="titleClasses()">Email</dt>
         <dd>{{ contact.email }}</dd>
     </dl>
 </article>
+<ng-template #loading>
+    <p>Chargement</p>
+</ng-template>

@@ -23,4 +23,11 @@ export class ContactDetailComponent implements OnInit{
       this.contact = contact;
     })
   }
+
+  titleClasses() {
+    return {
+      'has-first-name': this.contact?.firstName,
+      completed: this.contact?.firstName && this.contact.lastName
+    }
+  }
 }
