@@ -16,6 +16,7 @@ import { ContactResolverService } from './contact-resolver.service';
 import { ContactTitleResolverService } from './contact-title-resolver.service';
 import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
 import { TransliterationPipe } from './transliteration.pipe';
+import { APP_CONFIG_TOKEN, APP_CONFIG_VALUE } from './config';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,23 @@ import { TransliterationPipe } from './transliteration.pipe';
       {path: '**', redirectTo: ''}
     ])
   ],
-  providers: [],
+  providers: [
+    /*
+    ContactResolverService, // Le nom de la classe sert d'identifiant du service
+                            // il sert aussi de mode d'instanciation
+    // Permet d'instancier éventuellement une autre classe
+    { provide: ContactResolverService, useClass: ContactResolverService},
+    // Permet de réutiliser un service déjà existant
+    { provide: ContactResolverService, useExisting: ContactResolverService},
+    // Permet d'utiliser une valeur (objet déjà instancié par exemple)
+    { provide: ContactResolverService, useValue: 123},
+    // Permet de définir comment fabriquer le service
+    { provide: ContactResolverService, useFactory: () => new ContactResolverService()},
+    { 
+      provide: APP_CONFIG_TOKEN, useValue: APP_CONFIG_VALUE
+    }
+    */
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
