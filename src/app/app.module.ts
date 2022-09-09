@@ -15,6 +15,7 @@ import { RouterModule } from '@angular/router';
 import { ContactResolverService } from './contact-resolver.service';
 import { ContactTitleResolverService } from './contact-title-resolver.service';
 import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
+import { TransliterationPipe } from './transliteration.pipe';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
     EvenLengthDirective,
     DivisibleByLengthDirective,
     PipeDemoComponent,
+    TransliterationPipe,
   ],
   imports: [
     BrowserModule,

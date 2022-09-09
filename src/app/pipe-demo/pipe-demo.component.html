@@ -3,3 +3,5 @@
 <p>{{ demoDate | date:'long' }}</p>
 <p>{{ 123456.6789 | currency  }}</p>
 <p>{{ 123456.6789 | currency:'EUR'  }}</p>
+<p>{{ 'ÀàÈèÇç'|transliterate }}</p>
+<p>{{ 'ÀàÈèÇç'|transliterate:['à', 'èÇ', 'ÀÈ'] }}</p>
