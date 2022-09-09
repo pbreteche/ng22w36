@@ -1,7 +1,7 @@
 <p appHighlightable>{{ demoDate | date }}</p>
 <p appHighlightable>{{ demoDate | date:'longDate' }}</p>
 <p appHighlightable>{{ demoDate | date:'long' }}</p>
-<p>{{ 123456.6789 | currency  }}</p>
-<p>{{ 123456.6789 | currency:'EUR'  }}</p>
+<p *appUnless="true">{{ 123456.6789 | currency  }}</p>
+<p *appUnless="false">{{ 123456.6789 | currency:'EUR'  }}</p>
 <p>{{ 'ÀàÈèÇç'|transliterate }}</p>
 <p>{{ 'ÀàÈèÇç'|transliterate:['à', 'èÇ', 'ÀÈ'] }}</p>

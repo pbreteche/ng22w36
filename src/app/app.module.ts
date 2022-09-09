@@ -18,6 +18,7 @@ import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
 import { TransliterationPipe } from './transliteration.pipe';
 import { APP_CONFIG_TOKEN, APP_CONFIG_VALUE } from './config';
 import { HighlightableDirective } from './highlightable.directive';
+import { UnlessDirective } from './unless.directive';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { HighlightableDirective } from './highlightable.directive';
     PipeDemoComponent,
     TransliterationPipe,
     HighlightableDirective,
+    UnlessDirective,
   ],
   imports: [
     BrowserModule,
